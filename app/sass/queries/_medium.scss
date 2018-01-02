@@ -2,13 +2,219 @@
 // Check this link for more information: http://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
 // 48rem = 768px
 
-.site-banner {
-  color: white;
-  background-color: green;
+//FONTS
+section.slider-main {
+    .carousel-item {
+        h2 {@include font(24);}
+    }
+}
+section.welcome-blurb {
+    h1 {@include font(24);}
+}
+section.cta-product {
+    h3 {@include font(24);}
+}
+section.cta-advisors {
+    .gigantic {@include font(48);}
+    .huge {@include font(36);}
+    .big {@include font(30);}
+}
+section.feature-qualities {
+    .media-body {
+        font-weight: 300;
+        .label {@include font(24);}
+    }
+}
+section.slider-testimonials {
+    .testimonial-message {@include font(24);}
+}
+section.cta-advisor-program {
+    h1 {@include font-size(36);}
+    p {
+        @include font(16);
+        font-weight: 300;
+    }
 }
 
-.site-blog {
-  &-column {
-    @include make-col(12);
+//SPACING
+section.cta-advisors {
+    .space {height: 30px;}
+    .btn {margin-top: 30px;}
+}
+section.feature-qualities {
+    .carousel-inner {margin-bottom: 20px;}
+}
+section.slider-testimonials {
+    .dp {margin-bottom: 20px;}
+}
+footer.footer-links {
+    .top {padding-bottom: 0px;}
+    .logos {
+        img {margin: 0px 15px;}
+    }
+}
+footer.footer-proper {
+    .footnote {
+        margin: 20px 0px;
+    }
+}
+
+/***** CUSTOM *****/
+//NAVIGATION
+#site,
+.main-navbar,
+footer {
+  transform: translateX(0);
+  transition: all 0.25s ease;
+}
+body.show-menu {
+    overflow: hidden;
+}
+body.show-menu #site,
+body.show-menu .main-navbar,
+body.show-menu footer {
+  transform: translateX(-70%);  
+}
+.navbar-collapse {
+  position: fixed;
+  display: block;
+  right: -70%;
+  top: 0; bottom: 0;
+  width: 70%;
+  height: 100vh;
+  padding: 30px;
+  background: #012248;
+  box-shadow: inset 10px 0px 20px -10px rgba(0,0,0,0.4);
+  transition: all 0.5s ease;
+}
+.navbar-nav li {
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.navbar-nav > li:last-child {
+  border: 0px;
+}
+nav .nav-item a.nav-link {
+  padding: 30px 0px;
+  color: #fff;
+}
+nav .btn-nav {
+  margin: 30px 0px;
+  padding: 20px 40px;
+}
+
+.dropdown-toggle {
+  position: relative;
+
+  .fa {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.25s ease;
   }
+}  
+.dropdown.show {
+    .dropdown-toggle {
+        .fa {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+}
+
+.dropdown-menu {
+  background: none;
+  margin: 0px -30px;
+  display: block;
+  max-height: 0px;
+  overflow: hidden;
+
+  box-shadow: initial;
+  top: initial;
+  opacity: 1;
+  transform: none;
+
+  transition: all 0.5s ease;
+
+    &.show {
+        transform: none;
+        max-height: 400px;
+    }
+    .dropdown-item {
+        color: #fff;
+        padding: 15px 30px;
+        background: rgba(0,0,0,0.4);
+        transition: all 0.25s ease;
+
+        &:hover {
+            background: #bf8329;
+            color: #fff;
+        }
+    }
+}
+
+
+//MAIN SLIDER
+section.slider-main {
+
+    .carousel-item {
+
+        &:before {
+            opacity: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            transform: none;
+            left: 0;
+            z-index: 1;
+            background: $color-light;
+            padding: 30px;
+            padding-bottom: 40px;
+
+            .caption {
+                position: relative;
+                transform: none;
+                bottom: initial;
+                top: initial;
+            }
+        }
+    }
+}
+
+//FEATURE: QUALITIES
+section.feature-qualities {
+    .indicator-wrapper {
+        padding: 0px 15px;
+    }
+    .carousel-indicators {   
+        li.active {
+            &:before {
+                display: none;
+            }
+        }
+    }
+    .media {
+        img {
+            max-width: 36px;
+            height: auto;
+        }
+    }
+}
+
+//ADVISOR PROGRAM
+section.cta-advisor-program {
+    p {
+        max-width: 100%;
+    }
+}
+
+//FOOTER
+footer.footer-links {
+    .links {
+        margin-bottom: 30px;
+    }
+    .copyright {
+        margin-top: 30px;
+    }
 }

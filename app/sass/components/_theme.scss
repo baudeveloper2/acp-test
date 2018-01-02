@@ -1,11 +1,610 @@
 // THEME.scss
+$color-primary: #012248;
+$color-secondary: #bf8329;
+$color-light: #f8f2e9;
+$bg-footer-links: #000;
+$bg-footer-proper: #444;
+
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Overpass:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Mrs+Saint+Delafield');
+$font-primary: 'Overpass', sans-serif;
 
 body {
-  padding-top: 3.5rem;
+  font-family: $font-primary;
 }
 
-.site-banner {
-  color: white;
-  background-color: black;
-  border-radius: 0;
+section {
+  padding: 80px 0px;
+  position: relative;
+
+  &.section-dark {
+    background: $color-primary;
+    color: #fff;
+  }
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+.sticky:before,
+.sticky:after {
+  content: '';
+  display: table;
+}
+
+footer {
+  a {
+    color: #fff;
+  }
+}
+
+.btn {
+  border-radius: 5px;
+  border: 2px solid rgba(0,0,0,0);
+  padding: 10px 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+
+  &-primary {
+    background: $color-secondary;
+    color: #fff;
+
+    &:hover {
+      background: $color-primary;
+      border-color: $color-primary;
+    }
+  }
+  &-secondary {
+    background: none;
+    border-color: $color-secondary;
+    color: $color-secondary;
+
+    &:hover {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: #fff;
+    }
+  }
+  &-white {
+    background: none;
+    border-color: #fff;
+    color: #fff;
+
+    &:hover {
+      background: $color-primary;
+      border-color: $color-primary;
+      color: #fff;
+    }
+  }
+  &-sticky {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+}
+
+span {
+  &.special {
+    color: $color-secondary;
+  }
+}
+
+nav {
+
+  &.navbar {
+    flex-wrap: nowrap;
+    display: block;
+  }
+  .above-navbar {
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 15px 0px;
+    max-height: 100px;
+    transition: all 0.25s ease;
+    
+    &-links {
+      list-style: none;
+      display: block;
+      width: 100%;
+      padding: 0px;
+      margin: 0px;
+
+      .item {
+        display: inline-block;
+
+        a {
+          display: inline-block;
+        }
+      }
+    }
+    a {
+      color: $color-primary;
+      padding: 5px 10px;
+      border: 1px solid transparent;
+      border-right-color: $color-secondary;
+      
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &-links {
+      > .item:last-child {
+        a {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+  &.solid {
+    .above-navbar {
+      max-height: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
+  }
+  .row {
+    width: 100%;
+  }
+  &.main-navbar {
+    background: rgba(255,255,255,0);
+    box-shadow: 0 3px 6px rgba(0,0,0,0);
+    transition: all 0.25s ease;
+
+    &:before {
+      content:'';
+      display: block;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+      background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+      background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+      z-index: 0;
+    }
+    &.solid {
+      background: rgba(255,255,255,1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    }
+  }
+  .logo {
+    mix-blend-mode: multiply;
+  }
+  .navbar-toggler {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-item {
+    .dropdown-toggle {
+      .fa-chevron-down {
+        font-size: 10px;
+        margin-left: 5px;
+        transition: all 0.25s ease;
+      }
+    }
+    a.nav-link {
+      color: $color-primary;
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 600;
+      padding: 10px;
+    }
+    .dropdown-toggle {
+      &:after {
+        all: initial;
+      }
+    }
+  }
+  .btn-nav {
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 10px 15px;
+    font-weight: 700;
+    margin: 0px;
+    margin-left: 15px;
+  }
+}
+.dropdown.show {
+  .dropdown-toggle {
+      .fa {
+          transform: rotate(180deg);
+      }
+  }
+}
+.dropdown-menu {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+  
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  top: 62px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(25%);
+}
+  .dropdown-menu.show {
+    opacity: 1;
+    pointer-events: initial;
+    transform: translateY(0);
+  }
+  .dropdown-menu .dropdown-item {
+    padding: 15px 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.25s ease;
+  }
+  .dropdown-menu .dropdown-item:hover {
+    background: #012248;
+    color: #fff;
+  }
+
+//*********************** WIP: SEARCH OVERLAY
+section.slider-main {
+  position: relative;
+}
+#search-overlay {
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 100000;
+  color: #fff;
+  text-align: center;
+  transform-origin: right top;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+//END OF WIP: SEARCH OVERLAY
+
+section.slider-main {
+  padding: 0px;
+  color: $color-primary;
+  font-weight: 300;
+
+  .carousel-indicators {
+    li {
+      opacity: 1;
+      background: $color-secondary;
+      cursor: pointer;
+
+      &.active {
+        background: $color-primary;
+      }
+    }
+  }
+
+  .carousel-item {
+    background-size: cover;
+    background-position: center right;
+    width: 100%;
+    max-height: 550px;
+
+    &:before {
+      content:'';
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 50%;
+      background-image:url('../../images/bg-slider-overlay.png');
+      background-size: 100%;
+      background-position: top left;
+      z-index: 1;
+    }
+    .background {
+      width: 100%;
+      position: relative;
+      z-index: 0;
+    }
+    .container {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .caption {
+      position: absolute;
+      left: 0; right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    h2 {
+      //font-size: 30px;
+      @include font-size(30);
+      line-height: 36px;
+    }
+    span {
+      display: block;
+    }
+  }
+}
+
+section.welcome-blurb {
+  color: $color-primary;
+  padding-bottom: 0px;
+
+  h1 {
+    font-weight: 300;
+    font-size: 30px;
+  }
+  .arrow {
+    margin-top: 20px;
+  }
+}
+
+section.cta-product {
+  
+  h3 {
+    color: $color-secondary;
+  }
+}
+
+section.cta-advisors {
+  padding: 0px;
+  background-image:url('../../images/bg-cta-advisors.jpg');
+  background-size: cover;
+  background-position: center;
+  
+  .with-bg {
+    padding:50px 0px;
+    background:rgba(191,131,41,0.6);
+  }
+  .space {
+    height: 160px;
+  }
+  .texts {
+    text-transform: uppercase;
+    display: block;
+    margin: 0px;
+    font-weight: 600;
+  }
+  .gigantic {
+    //font-size: 142px;
+    @include font-size(142);
+    line-height: 142px;
+    @extend .texts;
+  }
+  .huge {
+    //font-size: 100px;
+    @include font-size(100);
+    line-height: 100px;
+    @extend .texts;
+  }
+  .big {
+    font-size: 69px;
+    line-height: 64px;
+    @extend .texts;
+  }
+  .btn {
+    margin-top: 50px;
+  }
+}
+
+section.feature-qualities {
+  
+  .indicator-wrapper {
+    padding-left: 30px;
+  }
+  .carousel-indicators {
+    padding-left: 30px;
+  }
+  .carousel-indicators,
+  .carousel-indicators li {
+    all: initial;
+    font-family: inherit;
+    display: block;
+  }
+  .carousel-indicators li {
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    padding: 20px;
+
+    &:not(.active):hover {
+      background: #fafafa;
+    }
+    &.active {
+      background: $color-light;
+      position: relative;
+
+      &:before {
+        content:'';
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        top: 50%;
+        left: 0;
+        width: 30px;
+        height: 50px;
+        border: 25px solid rgba(0,0,0,0);
+        border-right: 30px solid #f8f2e9;
+        transform: translateX(-100%) translateY(-50%);
+      }
+    }
+  }
+  .media-body {
+    padding-left: 30px;
+
+    .label {
+      color: $color-secondary;
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 400;
+      margin: 0px;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 0px;
+      
+      a {
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+section.slider-testimonials {
+  padding: 35px 0px;
+
+  .testimonial-message {
+    color: $color-secondary;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 30px;
+    line-height: 36px;
+
+    &:before, &:after {
+      content:'"';
+    }
+  }
+  .testimonial-author {
+    font-size: 20px;
+  }
+  .testimonial-occupation {
+    font-size: 16px;
+    line-height: 19px;
+    font-style: italic;
+  }
+}
+
+section.feature-clients {
+  img {
+    margin: 20px 40px;
+    height: auto;
+    opacity: 0.61;
+  }
+}
+
+.btn-sticky {
+  padding: 8px 12px;
+  border: 0px;
+
+  .icon {
+    margin-right: 10px;
+  }
+}
+section.cta-advisor-program {
+
+  &:before {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+
+    background-image:url('../../images/bg-cta-advisor-program.png');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    opacity: 0.57;
+  }
+  h1 {
+    font-family: 'Mrs Saint Delafield', cursive;
+    @include font-size(57);
+  }
+  p {
+    @include font(20);
+    font-weight: 400;
+    max-width: 640px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+  }
+  .btn {
+    padding: 15px 30px;
+  }
+}
+
+footer.footer-links {
+  background: $bg-footer-links;
+  color: #fff;
+  font-size: 14px;
+  
+  a {
+    position: relative;
+    transition: all 0.25s ease;
+
+    &:before {
+      content:'';
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      width: 0px;
+      height: 1px;
+      background: $color-secondary;
+      transition: all 0.25s ease;
+    }
+    &:hover {
+      color: $color-secondary;
+      text-decoration: none;
+
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+  .top-links {
+    margin-bottom: 40px;
+  }
+  .links {
+    font-weight: 400;
+    list-style: none;
+    padding: 0px;
+    a {
+      line-height: 22px;
+    }
+  }
+  .logos {
+    img {
+      margin-right: 30px;
+    }
+  }
+  .copyright {
+    a {
+      text-decoration: underline;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+  .main,
+  .links > li:first-child {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .top {
+    padding: 60px 0px;
+  }
+  .bottom {
+    padding: 30px 0px;
+    font-size: 12px;
+  }
+}
+
+footer.footer-proper {
+  padding: 25px 0px;
+  background: $bg-footer-proper;
+  color: #fff;
+  font-size: 12px;
+
+  a {
+    text-decoration: underline;
+    transition: all 0.25s ease;
+    
+    &:hover {
+      color: $color-secondary;
+    }
+  }
 }

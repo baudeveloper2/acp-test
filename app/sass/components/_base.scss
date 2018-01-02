@@ -50,6 +50,10 @@ SCSS Guide: http://thesassway.com/
   font-size: ($sizeValue) + px;
   font-size: ($sizeValue / 16) + rem;
 }
+@mixin font($sizeValue) {
+  @include font-size($sizeValue);
+  line-height: (($sizeValue / 16) * 1.5) + rem;
+}
 
 // FONT WEIGHTS VARS
 $fw-light: 300;

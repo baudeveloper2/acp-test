@@ -1,23 +1,51 @@
-nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-  a.navbar-brand(href='#') Navbar
-  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
-    span.navbar-toggler-icon
-  #navbarsExampleDefault.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item(class=(bodyClass === 'home' ? 'active' : ''))
-        a.nav-link(href='/')
-          | Home 
-          span.sr-only (current)
-      li.nav-item(class=(bodyClass === 'about' ? 'active' : ''))
-        a.nav-link(href='/about.html') About
-      li.nav-item
-        a.nav-link.disabled(href='#') Disabled
-      li.nav-item.dropdown
-        a#dropdown01.nav-link.dropdown-toggle(href='http://example.com', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
-        .dropdown-menu(aria-labelledby='dropdown01')
-          a.dropdown-item(href='#') Action
-          a.dropdown-item(href='#') Another action
-          a.dropdown-item(href='#') Something else here
-    form.form-inline.my-2.my-lg-0
-      input.form-control.mr-sm-2(type='text', placeholder='Search', aria-label='Search')
-      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+nav.navbar.fixed-top.navbar-expand-md.main-navbar
+
+  .above-navbar.container
+    .row.align-items-center
+      ul.above-navbar-links.text-center.text-md-right
+        li.item
+          a(href='#') Investor Information Centre
+        li.item
+          a(href='#') Contact Us
+        li.item
+          a(href='#') 
+            i.fa.fa-search(aria-hidden="true")
+
+  .container  
+    .row.no-gutters.align-items-center
+      .col-md-3
+        a.navbar-brand(href='#')
+          img.logo(src='../images/logo-cropped.png')
+        //- button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarMain', aria-expanded='false', aria-label='Toggle navigation')
+        //-   span.navbar-toggler-icon
+        button#hamburger.navbar-toggler.hamburger.hamburger--arrow-r(type='button', data-toggle='collapse', data-target='#navbarMain', aria-expanded='false', aria-label='Toggle navigation')
+          span.hamburger-box
+            span.hamburger-inner
+      .col
+        #navbarMain.collapse.navbar-collapse.justify-content-end
+          ul.navbar-nav
+            li.nav-item.dropdown.active
+              a#dropdown-01.dropdown-toggle.nav-link(href='/', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Aligned Thinking
+                i.fa.fa-chevron-down
+              .dropdown-menu(aria-labelledby='dropdown-01')
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+            li.nav-item.dropdown
+              a#dropdown-02.dropdown-toggle.nav-link(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Our Platform
+                i.fa.fa-chevron-down
+              .dropdown-menu(aria-labelledby='dropdown-02')
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+            li.nav-item.dropdown
+              a#dropdown-03.dropdown-toggle.nav-link(href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') About Us
+                i.fa.fa-chevron-down
+              .dropdown-menu(aria-labelledby='dropdown-03')
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+                a.dropdown-item(href='#') Dropdown Item
+            li.nav-item
+              button.btn.btn-primary.btn-nav(href='#') Advisor Access
+              

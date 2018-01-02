@@ -3,23 +3,33 @@
 //========================
 "use strict";
 
-//==================
-// Application Logic
-//==================
-var myApp = {};
-myApp.init = () => {
-	// const SLANG = "Eh! ";
-	// const SPEAK = "Today, The weather is: ";
-	// let weather = 100;
-  // document.querySelector(".msg").textContent = SLANG + SPEAK + weather;
-	$("a[data-js=\"signup\"]").on("click", function() {
-		alert("You clicked me.");
-	});
-};
-
-//===============
-// Initialization
-//===============
 $(function() {
-	myApp.init();
+	
+	//initialize sliderMain
+	$("#carouselMain").carousel({
+		interval: 40000
+	});
+
+	//navbar bg change on scroll
+	$(document).scroll(function () {
+		$(".main-navbar").toggleClass("solid", $(this).scrollTop() > $(".main-navbar").height());
+	});
+
+	//offcanvass menu and hamburger icon
+	$("#hamburger").click(function() {
+		$(this).toggleClass("is-active");
+		$("body").toggleClass("show-menu");
+	});
+
+	//smoothscroll
+	$("#down-arrow").click(function() {
+		document.querySelector("section.cta-product").scrollIntoView({ 
+			behavior: "smooth" 
+		  });
+	});
+
+	//stickyfill
+	var elements = $(".sticky");
+	Stickyfill.add(elements);
+
 });

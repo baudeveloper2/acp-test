@@ -42,9 +42,16 @@ html(lang="en")
         //- Styles
         link(rel="stylesheet", href="css/bootstrap.css", media="screen")
         link(rel="stylesheet", href="css/style.css", media="screen")
+
+        //CUSTOM
+        link(rel="stylesheet", href="css/carousel-fade.css", media="screen")
+        link(rel="stylesheet", href="css/kenburns.css", media="screen")
+        link(rel="stylesheet", href="css/hamburgers.css", media="screen")
+        //script(src="https://use.fontawesome.com/releases/v5.0.2/js/all.js")
     block vars
     body(class=bodyClass)
         block content
+        block footer
         script(src="https://cdnjs.cloudflare.com/ajax/libs/html-inspector/0.8.2/html-inspector.js")
         script(src="js/vendor/jquery.min.js")
         script(src="js/vendor/popper.min.js")

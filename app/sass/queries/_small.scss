@@ -2,7 +2,33 @@
 // Check this link for more information: http://v4-alpha.getbootstrap.com/layout/overview/#responsive-breakpoints
 // 36rem = 576px
 
-.site-banner {
-  color: white;
-  background-color: red;
+//FONTS
+section.slider-main {
+    .carousel-item {
+        h2 {@include font(20);}
+    }
+}
+section.welcome-blurb {
+    h1 {@include font(20);}
+}
+section.cta-product {
+    h3 {@include font(20);}
+}
+section.cta-advisors {
+    .gigantic {@include font(48);}
+    .huge {@include font(36);}
+    .big {@include font(30);}
+}
+section.feature-qualities {
+    .media-body {
+        .label {@include font(20);}
+    }
+}
+section.slider-testimonials {
+    .testimonial-message {@include font(20);}
+}
+
+/***** CUSTOM *****/
+section.cta-advisor-program {
+    .special {display: block;}
 }
